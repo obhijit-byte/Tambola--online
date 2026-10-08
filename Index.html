@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Housie Online</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🎟️ Housie Online</div>
+  <div class="subtitle">Online Tambola Game</div>
+</header>
+
+<main>
+
+  <!-- HOME -->
+  <section id="home" class="page active">
+
+    <div class="hero">
+      <h1>Play Housie Online</h1>
+      <p>Create a game or join an existing game.</p>
+
+      <div class="home-buttons">
+        <button onclick="showHost()">👑 Create Game</button>
+        <button onclick="showPlayer()">🎫 Join Game</button>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- HOST -->
+  <section id="host" class="page">
+
+    <button class="back" onclick="goHome()">← Back</button>
+
+    <div class="panel">
+
+      <h2>👑 Host Dashboard</h2>
+
+      <label>Game Name</label>
+      <input
+        id="gameName"
+        type="text"
+        placeholder="Sunday Housie"
+      >
+
+      <label>Number of Tickets</label>
+
+      <select id="ticketCount">
+        <option value="100">100 Tickets</option>
+        <option value="500" selected>500 Tickets</option>
+        <option value="1000">1000 Tickets</option>
+        <option value="5000">5000 Tickets</option>
+      </select>
+
+      <button onclick="createGame()">
+        🚀 Create Game
+      </button>
+
+    </div>
+
+
+    <div id="hostGame" class="panel hidden">
+
+      <h3>Game Created</h3>
+
+      <div class="game-code" id="gameCode">
+        HOU-0000
+      </div>
+
+      <p>Share this code with players.</p>
+
+      <div class="host-buttons">
+
+        <button onclick="startGame()">
+          ▶ Start Game
+        </button>
+
+        <button onclick="nextNumber()">
+          🔢 Call Number
+        </button>
+
+        <button onclick="resetGame()">
+          🔄 Reset
+        </button>
+
+      </div>
+
+      <div class="last-number">
+        <span>LAST NUMBER</span>
+        <strong id="called">-</strong>
+      </div>
+
+      <div class="board" id="board"></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PLAYER -->
+  <section id="player" class="page">
+
+    <button class="back" onclick="goHome()">← Back</button>
+
+    <div class="panel">
+
+      <h2>🎫 Join Game</h2>
+
+      <label>Game Code</label>
+
+      <input
+        id="joinCode"
+        placeholder="HOU-1234"
+      >
+
+      <label>Your Name</label>
+
+      <input
+        id="playerName"
+        placeholder="Enter your name"
+      >
+
+      <button onclick="joinGame()">
+        🎮 Join Game
+      </button>
+
+    </div>
+
+
+    <div id="playerGame" class="panel hidden">
+
+      <h3 id="playerWelcome">
+        Welcome
+      </h3>
+
+      <div class="ticket-info">
+
+        <span>Ticket</span>
+
+        <strong id="ticketId">
+          T-0001
+        </strong>
+
+      </div>
+
+      <div id="ticket" class="ticket"></div>
+
+      <h3>Called Numbers</h3>
+
+      <div id="playerBoard" class="board"></div>
+
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 Housie Online</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+        </html>
